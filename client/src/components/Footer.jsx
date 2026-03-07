@@ -17,7 +17,7 @@ export const Footer = () => {
     { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/codewithkinu", label: "LinkedIn" },
     { icon: <Instagram size={18} />, href: "https://instagram.com/dubbinut", label: "Instagram" },
     { icon: <Youtube size={18} />, href: "https://youtube.com/@codewithkinu", label: "YouTube" },
-    { icon: <Github size={18} />, href: "https://github.com/sahilmd01", label: "GitHub" },
+    { icon: <Github size={18} />, href: "https://github.com/bumjunmd01", label: "GitHub" },
   ];
 
   const quickLinks = [
@@ -169,7 +169,7 @@ export const Footer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p>© {currentYear} Sahil. All rights reserved.</p>
+              <p>© {currentYear} Bumjun. All rights reserved.</p>
             </div>
             
             <div className="flex items-center space-x-6">
