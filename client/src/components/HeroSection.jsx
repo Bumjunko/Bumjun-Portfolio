@@ -28,8 +28,8 @@ export const HeroSection = () => {
   const achievements = [
     { number: "1+", label: "Years in Production", icon: <Shield className="h-3 w-3" /> },
     { number: "15+", label: "Projects Delivered", icon: <TrendingUp className="h-3 w-3" /> },
-    { number: "100%", label: "Client Satisfaction", icon: <Award className="h-3 w-3" /> },
-    { number: "15+", label: "Projects completed", icon: <Zap className="h-3 w-3" /> }
+    { number: "15+", label: "Projects completed", icon: <Zap className="h-3 w-3" /> },
+    { number: "100%", label: "Client Satisfaction", icon: <Award className="h-3 w-3" /> }
   ];
 
   useEffect(() => {
