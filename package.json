@@ -1,0 +1,11 @@
+{
+  "name": "bumjun-portfolio",
+  "private": true,
+  "scripts": {
+    "install:client": "cd client && npm install",
+    "start": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "preview": "cd client && npm run preview",
+    "lint": "cd client && npm run lint"
+  }
+}
