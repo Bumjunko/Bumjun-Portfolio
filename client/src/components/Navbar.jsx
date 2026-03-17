@@ -59,7 +59,6 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState("#hero");
   const [showNavbar, setShowNavbar] = useState(true);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-  const [isAudioReady, setIsAudioReady] = useState(false);
   const lastScrollYRef = useRef(0);
   const audioRef = useRef(null);
 
@@ -72,30 +71,32 @@ export const Navbar = () => {
       audioRef.current.volume = 0.5;
       audioRef.current.preload = "auto";
 
-      const handleCanPlay = () => setIsAudioReady(true);
-
-      audioRef.current.addEventListener("canplaythrough", handleCanPlay);
 
       return () => {
         if (audioRef.current) {
           audioRef.current.pause();
-          audioRef.current.removeEventListener("canplaythrough", handleCanPlay);
           audioRef.current = null;
         }
       };
     }
   }, []);
 
-  const toggleMusic = () => {
-    if (!audioRef.current || !isAudioReady) return;
+  const toggleMusic = async () => {
+    if (!audioRef.current) return;
 
     if (isMusicPlaying) {
       audioRef.current.pause();
-    } else {
-      audioRef.current.play().catch(console.error);
+      setIsMusicPlaying(false);
+      return;
     }
 
-    setIsMusicPlaying(!isMusicPlaying);
+    try {
+      await audioRef.current.play();
+      setIsMusicPlaying(true);
+    } catch (error) {
+      console.error(error);
+      setIsMusicPlaying(false);
+    }
   };
 
   useEffect(() => {
@@ -203,22 +204,16 @@ export const Navbar = () => {
         {/* Music Button */}
         <motion.button
           onClick={toggleMusic}
-          disabled={!isAudioReady}
           className={cn(
             "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
             "text-primary hover:bg-primary/10 dark:hover:bg-primary/20",
             "border border-gray-200 dark:border-gray-700 shadow-sm",
             "flex items-center justify-center",
-            !isAudioReady && "opacity-50 cursor-not-allowed"
           )}
-          whileHover={{ scale: isAudioReady ? 1.05 : 1 }}
-          whileTap={{ scale: isAudioReady ? 0.95 : 1 }}
-          title={
-            isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music..."
-          }
-          aria-label={
-            isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music"
-          }
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          title={isMusicPlaying ? "Pause music" : "Play music"}
+          aria-label={isMusicPlaying ? "Pause music" : "Play music"}
         >
           {isMusicPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
         </motion.button>
