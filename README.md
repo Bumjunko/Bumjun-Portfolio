@@ -87,7 +87,7 @@ npm run lint       # Run ESLint
 ## Key Features
 
 - Responsive hero, about, experience, skills, projects, and contact sections
-- Experience highlights covering operations, leadership, and administrative work
+- Experience covering operations, leadership, and administrative work
 - Mobile-friendly project carousel with category filtering
 - Project cards with live demo, deliverable, and GitHub links
 - Formspree contact form with validation and toast feedback
