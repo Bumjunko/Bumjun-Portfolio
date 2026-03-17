@@ -220,7 +220,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="John Doe"
+                  placeholder="Bumjun Ko"
                 />
               </div>
 
@@ -258,7 +258,7 @@ export const ContactSection = () => {
                   required
                   rows={4}
                   className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-none text-sm sm:text-base"
-                  placeholder="Hey, I'd love to collaborate on..."
+                  placeholder="Hey, I'd love to discuss..."
                 />
               </div>
 

@@ -293,11 +293,7 @@ export const ExperienceSection = () => {
                     ))}
                   </div>
 
-                  <div
-                    className={`absolute left-6 right-6 flex min-h-[88px] flex-wrap content-start gap-2 border-t border-border pt-4 ${
-                      experience.id === 4 ? "bottom-[42px]" : "bottom-[18px]"
-                    }`}
-                  >
+                  <div className="absolute bottom-[10px] left-6 right-6 flex min-h-[114px] flex-wrap content-start gap-2 border-t border-border pt-4">
                     {experience.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
@@ -323,7 +319,7 @@ export const ExperienceSection = () => {
         >
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card/70 border border-border text-sm text-muted-foreground">
             <Briefcase className="h-4 w-4 text-primary" />
-            Experience that supports both software roles and operations-driven team environments
+            Experience in operations, coordination, and team support across academic, administrative, and leadership settings
           </div>
         </motion.div>
       </div>

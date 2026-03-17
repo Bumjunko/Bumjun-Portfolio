@@ -1,5 +1,5 @@
 import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight, Filter, Sparkles, Award, Zap, Play, Eye, Calendar, Users, X } from "lucide-react";
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -45,7 +45,7 @@ const projects = [
     image: "/projects/portfolio-website.png",
     video: "",
     tags: ["React", "Responsive UI", "Portfolio Design", "User-Focused Content"],
-    demoUrl: "#",
+    demoUrl: "https://bumjun-portfolio.vercel.app/",
     githubUrl: "https://github.com/Bumjunko/bumjun-portfolio",
     featured: false,
     accentColor: "from-sky-500 to-indigo-600",
@@ -98,6 +98,7 @@ export const ProjectsSection = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
   
@@ -109,11 +110,18 @@ export const ProjectsSection = () => {
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const opacityBg = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.2, 0.1]);
 
+  useEffect(() => {
+    const updateIsMobile = () => setIsMobile(window.innerWidth < 768);
+    updateIsMobile();
+    window.addEventListener("resize", updateIsMobile);
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
+
   const filteredProjects = activeFilter === "All" 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
   
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
+  const displayedProjects = isMobile ? filteredProjects : showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
   const categories = ["All", ...new Set(projects.map(project => project.category))];
 
@@ -227,7 +235,7 @@ export const ProjectsSection = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0">
           <AnimatePresence mode="wait">
             {displayedProjects.map((project, index) => (
               <motion.div
@@ -242,7 +250,7 @@ export const ProjectsSection = () => {
                   type: "spring",
                   stiffness: 100
                 }}
-                className="group"
+                className="group min-w-[320px] snap-start sm:min-w-[360px] md:min-w-0"
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
@@ -464,7 +472,7 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Load More */}
-        {filteredProjects.length > 3 && (
+        {!isMobile && filteredProjects.length > 3 && (
           <motion.div 
             className="text-center mt-16"
             initial={{ opacity: 0, y: 30 }}
