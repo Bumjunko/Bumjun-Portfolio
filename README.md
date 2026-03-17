@@ -20,10 +20,10 @@ Live Application: https://bumjun.dev
 ## Overview
 
 This portfolio highlights:
-- software and web application projects
-- academic, administrative, and leadership experience
-- technical skills and tools
-- resume and contact access
+- Software and web application projects
+- Academic, administrative, and leadership experience
+- Technical skills and tools
+- Resume and contact access
 
 ## Architecture
 
