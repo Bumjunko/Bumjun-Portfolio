@@ -7,15 +7,15 @@ Live Application: https://bumjun-portfolio.vercel.app/
 ## Portfolio Preview
 
 ### Home / Hero Section
-![Home 1](readme_image/bumjunko portfolio 1.png)
-![Home 2](readme_image/bumjunko porfolio 1-2.png)
+![Home 1](readme_image/bumjunko-portfolio-1.png)
+![Home 2](readme_image/bumjunko-portfolio-1-2.png)
 
 ### Other Sections
-![Section 1](readme_image/bumjunko portfolio 2.png)
-![Section 2](readme_image/bumjunko portfolio 3.png)
-![Section 3](readme_image/bumjunko portfolio 4.png)
-![Section 4](readme_image/bumjunko portfolio 5.png)
-![Section 5](readme_image/bumjunko portfolio 6.png)
+![Section 1](readme_image/bumjunko-portfolio-2.png)
+![Section 2](readme_image/bumjunko-portfolio-3.png)
+![Section 3](readme_image/bumjunko-portfolio-4.png)
+![Section 4](readme_image/bumjunko-portfolio-5.png)
+![Section 5](readme_image/bumjunko-portfolio-6.png)
 
 ## Overview
 
