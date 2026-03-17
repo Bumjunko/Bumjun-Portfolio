@@ -99,8 +99,10 @@ export const HeroSection = () => {
         <motion.div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20" initial="hidden" animate={isInView ? "visible" : "hidden"} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.5 } } }}>
           
           <div className="flex-1 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
-            <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mt-5 mb-8 backdrop-blur-sm" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              <Briefcase className="h-4 w-4" /> Currently Seeking Opportunities in Software, and Technology Operations
+            <motion.div className="inline-flex max-w-[21rem] sm:max-w-none items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mt-5 mb-8 text-center backdrop-blur-sm" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
+              <Briefcase className="h-4 w-4" />
+              <span className="sm:hidden">Currently Seeking Opportunities in CS and Software Roles</span>
+              <span className="hidden sm:inline">Currently Seeking Opportunities in Software, and Technology Operations</span>
             </motion.div>
 
             <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
@@ -110,19 +112,41 @@ export const HeroSection = () => {
               </motion.span>
             </motion.h1>
 
-            <motion.p className="text-lg sm:text-xl text-muted-foreground mt-6 leading-relaxed max-w-2xl" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
+            <motion.p className="text-center lg:text-left text-lg sm:text-xl text-muted-foreground mt-6 leading-relaxed max-w-2xl" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
               Computer Science student at <span className="text-primary font-semibold">Angelo State University</span> with experience in web applications, operational support, and data-informed problem solving for student-facing and organizational tools.
             </motion.p>
 
             <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
               {achievements.map((achievement, index) => (
-                <div key={index} className="text-center p-4 rounded-xl bg-background/60 border border-border/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
+                <motion.div
+                  key={index}
+                  className="text-center p-4 rounded-xl bg-background/60 border border-border/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300"
+                  animate={{
+                    borderColor: ["rgba(255,255,255,0.08)", "rgba(139,92,246,0.45)", "rgba(255,255,255,0.08)"],
+                    boxShadow: [
+                      "0 0 0 rgba(139,92,246,0)",
+                      "0 0 24px rgba(139,92,246,0.22)",
+                      "0 0 0 rgba(139,92,246,0)"
+                    ],
+                    backgroundColor: [
+                      "rgba(255,255,255,0.06)",
+                      "rgba(139,92,246,0.10)",
+                      "rgba(255,255,255,0.06)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    repeatDelay: 5.8,
+                    delay: index * 2
+                  }}
+                >
                   <div className="flex items-center justify-center gap-2 mb-2">
                     {achievement.icon}
                     <div className="text-2xl font-bold text-foreground">{achievement.number}</div>
                   </div>
                   <div className="text-xs text-muted-foreground">{achievement.label}</div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
 
@@ -149,7 +173,7 @@ export const HeroSection = () => {
               </motion.button>
             </motion.div>
 
-            <motion.div className="mt-5 text-center lg:text-left" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
+            <motion.div className="mt-1 sm:mt-5 text-center lg:text-left" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
               <div className="text-sm text-muted-foreground">
                 <span className="text-primary font-semibold">🚀 Open to CS roles in the U.S.</span>
               </div>
@@ -239,7 +263,7 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      <motion.div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: [0, 1, 1, 0], y: [0, 6, 0, -6] }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}>
+      <motion.div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: [0, 1, 1, 0], y: [0, 6, 0, -6] }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}>
         <motion.div className="text-xs text-primary mb-3 flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm border border-border shadow-lg" whileHover={{ scale: 1.05 }}>
           <MousePointerClick className="h-3 w-3" />
           <span>Explore Technical Portfolio</span>

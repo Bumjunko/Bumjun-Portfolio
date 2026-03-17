@@ -25,7 +25,7 @@ const experiences = [
     id: 2,
     title: "President",
     organization: "KSEA Angelo State YG Group",
-    period: "Jul 2025 - May 2026",
+    period: "Jul 2025 - Present",
     status: "Leadership",
     category: "Student Leadership",
     accent: "from-sky-500 to-indigo-600",
@@ -44,7 +44,7 @@ const experiences = [
     title: "Treasurer",
     organization: "Korean Student Association, Angelo State University",
     period: "Aug 2025 - Dec 2025",
-    status: "Campus Role",
+    status: "Executive",
     category: "Student Organization",
     accent: "from-fuchsia-500 to-pink-600",
     icon: <Wallet className="h-5 w-5" />,
@@ -63,7 +63,7 @@ const experiences = [
     organization: "Republic of Korea Army, 51st Infantry Division",
     period: "Oct 2021 - Apr 2023",
     status: "Completed",
-    category: "Military Administration",
+    category: "Military Service",
     accent: "from-amber-500 to-orange-600",
     icon: <ShieldCheck className="h-5 w-5" />,
     description:
@@ -80,7 +80,7 @@ const experiences = [
 const categoryColors = {
   "Operations Support": "from-emerald-500/20 to-teal-600/20 text-emerald-600 border-emerald-500/30",
   "Student Leadership": "from-sky-500/20 to-indigo-600/20 text-sky-600 border-sky-500/30",
-  "Military Administration": "from-amber-500/20 to-orange-600/20 text-amber-600 border-amber-500/30",
+  "Military Service": "from-amber-500/20 to-orange-600/20 text-amber-600 border-amber-500/30",
   "Student Organization": "from-fuchsia-500/20 to-pink-600/20 text-fuchsia-600 border-fuchsia-500/30",
 };
 
@@ -245,12 +245,19 @@ export const ExperienceSection = () => {
                             experience.title
                           )}
                         </h3>
-                        <p className={`absolute inset-x-0 text-center text-sm text-muted-foreground ${experience.id === 1 ? "top-8 px-12" : experience.id === 3 ? "top-16 px-4 whitespace-nowrap" : "top-8 px-12 whitespace-nowrap"}`}>
+                        <p className={`absolute inset-x-0 text-center text-sm text-muted-foreground ${experience.id === 1 ? "top-8 px-8 text-[13px] sm:px-12 sm:text-sm" : experience.id === 3 ? "top-16 px-4 whitespace-nowrap" : "top-8 px-12 whitespace-nowrap"}`}>
                           {experience.id === 1 ? (
                             <>
-                              Center for International Studies,
-                              <br />
-                              Angelo State University
+                              <span className="sm:hidden leading-tight">
+                                Center for International
+                                <br />
+                                Studies, Angelo State University</span>
+
+                              <span className="hidden sm:inline">
+                                Center for International Studies,
+                                <br />
+                                Angelo State University
+                              </span>
                             </>
                           ) : experience.id === 4 ? (
                             <>
@@ -258,13 +265,19 @@ export const ExperienceSection = () => {
                               <br />
                               Angelo State University
                             </>
+                          ) : experience.id === 3 ? (
+                            <>
+                              Republic of Korea Army,
+                              <br />
+                              51st Infantry Division
+                            </>
                           ) : (
                             experience.organization
                           )}
                         </p>
                       </div>
                     </div>
-                    <div className="absolute top-0 right-[-12px] rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                    <div className="absolute top-0 right-[-12px] rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] sm:px-3 sm:py-1 sm:text-xs font-medium text-primary">
                       {experience.status}
                     </div>
                   </div>

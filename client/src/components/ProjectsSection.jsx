@@ -388,7 +388,7 @@ export const ProjectsSection = () => {
                       </h3>
                       {project.featured && (
                         <motion.div 
-                          className={`flex items-center gap-1 px-2 py-1 rounded-full bg-amber-500/20 text-amber-600 text-xs font-medium border border-amber-500/30 ${project.title === "ASU Hours" || project.title === "IBM SkillsBuild AI Experiential Learning Lab" ? "ml-auto relative z-[1]" : ""}`}
+                          className={`hidden md:flex items-center gap-1 px-2 py-1 rounded-full bg-amber-500/20 text-amber-600 text-xs font-medium border border-amber-500/30 ${project.title === "ASU Hours" || project.title === "IBM SkillsBuild AI Experiential Learning Lab" ? "ml-auto relative z-[1]" : ""}`}
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ delay: index * 0.1 + 0.3 }}

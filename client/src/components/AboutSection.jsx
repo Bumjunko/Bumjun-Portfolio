@@ -129,12 +129,12 @@ export const AboutSection = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex flex-col sm:flex-row border-b border-border mb-4 sm:mb-6">
+                <div className="grid grid-cols-3 border-b border-border mb-4 sm:mb-6">
                   {['personal', 'professional', 'approach'].map(tab => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300 ${activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                      className={`py-2 sm:py-3 px-1 sm:px-4 text-[11px] sm:text-base font-medium text-center transition-all duration-300 ${activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       {tab.charAt(0).toUpperCase() + tab.slice(1)}
                     </button>
