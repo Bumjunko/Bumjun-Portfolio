@@ -45,7 +45,7 @@ const projects = [
     image: "/projects/portfolio-website.png",
     video: "",
     tags: ["React", "Responsive UI", "Portfolio Design", "User-Focused Content"],
-    demoUrl: "https://bumjun-portfolio.vercel.app/",
+    demoUrl: "https://bumjun.dev",
     githubUrl: "https://github.com/Bumjunko/bumjun-portfolio",
     featured: false,
     accentColor: "from-sky-500 to-indigo-600",
