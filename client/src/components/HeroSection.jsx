@@ -113,7 +113,7 @@ export const HeroSection = () => {
             </motion.h1>
 
             <motion.p className="text-center lg:text-left text-lg sm:text-xl text-muted-foreground mt-6 leading-relaxed max-w-2xl" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              Computer Science student at <span className="text-primary font-semibold">Angelo State University</span> with experience in web applications, operational support, and data-informed problem solving for student-facing and organizational tools.
+              Senior Computer Science student at <span className="text-primary font-semibold">Angelo State University</span> with experience in web applications, operational support, and data-informed problem solving for student-facing and organizational tools.
             </motion.p>
 
             <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
